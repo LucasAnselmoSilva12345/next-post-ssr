@@ -1,5 +1,5 @@
 import { getPosts } from '@/service/posts.service';
-import { PostList } from './post-list';
+import { PostList } from '../../components/post-list';
 
 export default async function PostsPage() {
   const { posts } = await getPosts();
