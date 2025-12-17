@@ -1,4 +1,5 @@
 import { IPost } from '@/types/post';
+import Link from 'next/link';
 
 interface IPostCard {
   post: IPost;
@@ -17,8 +18,12 @@ export default function PostCard({ post }: IPostCard) {
       ))}
       <p>{post.reactions.likes}</p>
       <p>{post.reactions.dislikes}</p>
-      <p>{post.view}</p>
+      <p>{post.views}</p>
       <p>{post.userId}</p>
+
+      <Link href={`/posts/${post.id}`} className="block bg-orange-500">
+        Ver Post
+      </Link>
     </div>
   );
 }

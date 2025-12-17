@@ -7,7 +7,7 @@ export interface IPost {
     likes: number;
     dislikes: number;
   };
-  view: number;
+  views: number;
   userId: number;
 }
 

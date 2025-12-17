@@ -1,4 +1,4 @@
-import { IPostResponse } from '@/types/post';
+import { IPost, IPostResponse } from '@/types/post';
 
 export async function getPosts(): Promise<IPostResponse> {
   const response = await fetch('https://dummyjson.com/posts', {
@@ -12,4 +12,16 @@ export async function getPosts(): Promise<IPostResponse> {
   }
 
   return response.json();
+}
+
+export async function getPostById(id: string): Promise<IPost> {
+  const res = await fetch(`https://dummyjson.com/posts/${id}`, {
+    cache: 'no-store',
+  });
+
+  if (!res.ok) {
+    throw new Error('Erro ao buscar post');
+  }
+
+  return res.json();
 }
